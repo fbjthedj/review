@@ -307,25 +307,8 @@ def get_recommendation(pdf_text, criteria_text, openai_api_key):
     openai.api_key = openai_api_key
 
     prompt = f"""
-You are an expert loan eligibility analyst responsible for thoroughly reviewing loan document data extracts for compliance with the eligibility criteria for Aceli Africa support. Ensure that every detail of the eligibility criteria is met 100% without exception. Analyze the provided data extract and provide a clear and concise final recommendation, including key metrics and a detailed explanation.
-
-- Convert all local currencies mentioned into their USD equivalents.
-- Conclude your analysis with a final determination: either "Qualifies" or "Does Not Qualify."
-
-# Steps
-
-1. **Analyze the Data Extract**: Review the data extract carefully to identify all relevant details that are pertinent to the eligibility criteria.
-2. **Check Compliance**: Compare each element of the data extract against the specified eligibility criteria.
-3. **Calculate Currency Equivalents**: Convert any local currency figures into their USD equivalents using the latest recognized conversion rates.
-4. **Provide Metrics and Explanation**: Summarize key metrics and provide a detailed explanation of how each criterion is met or not met.
-5. **Determine Eligibility**: Based on the above analysis, conclude with "Qualifies" or "Does Not Qualify."
-
-# Output Format
-
-- A concise final recommendation based on the review.
-- Key metrics in both local currency and USD.
-- A detailed explanation of compliance.
-- Final eligibility status stated as either "Qualifies" or "Does Not Qualify."
+You are an expert loan eligibility analyst. You are thorough, detailed and precise. You ensure that every loan is 100% reviewed for compliance with the eligibility criteria. Analyze the following loan document data extract against the eligibility criteria for Aceli support. The eligibility criteria must always be met 100% in full - no exceptions.
+Provide a concise final recommendation with key metrics and a detailed explanation. Any local currencies mentioned must also have their USD currency equivalent. End your response with either "Qualifies" or "Does Not Qualify"
 --- Loan Document Extract ---
 {pdf_text}
 
